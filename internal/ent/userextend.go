@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/facebook/ent/dialect/sql"
-	"github.com/thoohv5/template/internal/ent/userextend"
+	"github.com/thoohv5/template-grpc/internal/ent/userextend"
 )
 
 // UserExtend is the model entity for the UserExtend schema.

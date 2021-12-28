@@ -11,8 +11,8 @@ import (
 	"github.com/facebook/ent/dialect/sql"
 	"github.com/facebook/ent/dialect/sql/sqlgraph"
 	"github.com/facebook/ent/schema/field"
-	"github.com/thoohv5/template/internal/ent/predicate"
-	"github.com/thoohv5/template/internal/ent/userinfo"
+	"github.com/thoohv5/template-grpc/internal/ent/predicate"
+	"github.com/thoohv5/template-grpc/internal/ent/userinfo"
 )
 
 // UserInfoQuery is the builder for querying UserInfo entities.

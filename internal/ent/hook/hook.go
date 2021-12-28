@@ -6,7 +6,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/thoohv5/template/internal/ent"
+	"github.com/thoohv5/template-grpc/internal/ent"
 )
 
 // The MiniProgramAccountFunc type is an adapter to allow the use of ordinary

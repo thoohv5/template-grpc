@@ -7,14 +7,14 @@
 package main
 
 import (
-	"github.com/thoohv5/template/internal/data"
-	app2 "github.com/thoohv5/template/internal/pkg/app"
-	"github.com/thoohv5/template/internal/pkg/config"
-	"github.com/thoohv5/template/internal/pkg/log"
-	"github.com/thoohv5/template/internal/router"
-	"github.com/thoohv5/template/internal/server"
-	"github.com/thoohv5/template/internal/service"
-	"github.com/thoohv5/template/pkg/app"
+	"github.com/thoohv5/template-grpc/internal/data"
+	app2 "github.com/thoohv5/template-grpc/internal/pkg/app"
+	"github.com/thoohv5/template-grpc/internal/pkg/config"
+	"github.com/thoohv5/template-grpc/internal/pkg/log"
+	"github.com/thoohv5/template-grpc/internal/router"
+	"github.com/thoohv5/template-grpc/internal/server"
+	"github.com/thoohv5/template-grpc/internal/service"
+	"github.com/thoohv5/template-grpc/pkg/app"
 )
 
 // Injectors from wire.go:
@@ -22,13 +22,13 @@ import (
 // initApp init application.
 func initApp() (app.IApp, func(), error) {
 	iConfig := config.New()
-	logger := log.New(iConfig)
-	iData, cleanup, err := data.New(iConfig, logger)
+	iLogger := log.New(iConfig)
+	iData, cleanup, err := data.New(iConfig, iLogger)
 	if err != nil {
 		return nil, nil, err
 	}
-	iService := service.New(iConfig, logger, iData)
-	iServer := server.New(iConfig, logger, iService)
+	iService := service.New(iConfig, iLogger, iData)
+	iServer := server.New(iConfig, iLogger, iService)
 	registerRouter := router.New(iConfig, iServer)
 	iApp := app2.New(iConfig, registerRouter)
 	return iApp, func() {

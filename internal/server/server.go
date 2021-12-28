@@ -2,20 +2,20 @@
 package server
 
 import (
-	"github.com/thoohv5/template/pkg/http"
+	"github.com/thoohv5/template-grpc/pkg/http"
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/thoohv5/template/internal/pkg/config"
-	"github.com/thoohv5/template/internal/service"
-	"github.com/thoohv5/template/pkg/log"
+	"github.com/thoohv5/template-grpc/internal/pkg/config"
+	"github.com/thoohv5/template-grpc/internal/service"
+	"github.com/thoohv5/template-grpc/pkg/log"
 )
 
 type server struct {
 	// 配置
 	cf config.IConfig
 	// 日志
-	log log.ILog
+	log log.ILogger
 
 	// 业务
 	svr service.IService
@@ -28,7 +28,7 @@ type IServer interface {
 }
 
 // New 创建
-func New(cf config.IConfig, log log.ILog, svr service.IService) IServer {
+func New(cf config.IConfig, log log.ILogger, svr service.IService) IServer {
 	return &server{
 		cf:  cf,
 		log: log,

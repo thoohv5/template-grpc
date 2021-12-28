@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	
-	"github.com/thoohv5/template/internal/ent"
+
+	"github.com/thoohv5/template-grpc/internal/ent"
 )
 
 func TestRandomClientSetPolicy(t *testing.T) {

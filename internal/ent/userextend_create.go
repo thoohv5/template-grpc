@@ -9,7 +9,7 @@ import (
 
 	"github.com/facebook/ent/dialect/sql/sqlgraph"
 	"github.com/facebook/ent/schema/field"
-	"github.com/thoohv5/template/internal/ent/userextend"
+	"github.com/thoohv5/template-grpc/internal/ent/userextend"
 )
 
 // UserExtendCreate is the builder for creating a UserExtend entity.

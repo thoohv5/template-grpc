@@ -10,8 +10,8 @@ import (
 	"github.com/go-playground/validator/v10"
 	"github.com/pkg/errors"
 
-	"github.com/thoohv5/template/pkg/hpx/middleware"
-	pkgvalidator "github.com/thoohv5/template/pkg/validator"
+	"github.com/thoohv5/template-grpc/pkg/hpx/middleware"
+	pkgvalidator "github.com/thoohv5/template-grpc/pkg/validator"
 )
 
 type hpx struct{}

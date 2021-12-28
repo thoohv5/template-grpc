@@ -1,6 +1,6 @@
 package entx
 
-import "github.com/thoohv5/template/internal/ent"
+import "github.com/thoohv5/template-grpc/internal/ent"
 
 type ClientType int
 

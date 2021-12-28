@@ -3,11 +3,11 @@
 package ent
 
 import (
-	"github.com/thoohv5/template/internal/ent/miniprogramaccount"
-	"github.com/thoohv5/template/internal/ent/schema"
-	"github.com/thoohv5/template/internal/ent/user"
-	"github.com/thoohv5/template/internal/ent/useraccount"
-	"github.com/thoohv5/template/internal/ent/userinfo"
+	"github.com/thoohv5/template-grpc/internal/ent/miniprogramaccount"
+	"github.com/thoohv5/template-grpc/internal/ent/schema"
+	"github.com/thoohv5/template-grpc/internal/ent/user"
+	"github.com/thoohv5/template-grpc/internal/ent/useraccount"
+	"github.com/thoohv5/template-grpc/internal/ent/userinfo"
 )
 
 // The init function reads all schema descriptors with runtime

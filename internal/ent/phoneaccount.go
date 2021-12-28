@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/facebook/ent/dialect/sql"
-	"github.com/thoohv5/template/internal/ent/phoneaccount"
+	"github.com/thoohv5/template-grpc/internal/ent/phoneaccount"
 )
 
 // PhoneAccount is the model entity for the PhoneAccount schema.

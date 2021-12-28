@@ -1,9 +1,9 @@
 package config
 
 import (
-	"github.com/thoohv5/template/internal/pkg/dbx"
-	"github.com/thoohv5/template/pkg/hpx"
-	"github.com/thoohv5/template/pkg/rdx"
+	"github.com/thoohv5/template-grpc/internal/pkg/dbx"
+	"github.com/thoohv5/template-grpc/pkg/hpx"
+	"github.com/thoohv5/template-grpc/pkg/rdx"
 )
 
 type config struct {

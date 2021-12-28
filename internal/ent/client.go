@@ -7,14 +7,14 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/thoohv5/template/internal/ent/migrate"
+	"github.com/thoohv5/template-grpc/internal/ent/migrate"
 
-	"github.com/thoohv5/template/internal/ent/miniprogramaccount"
-	"github.com/thoohv5/template/internal/ent/phoneaccount"
-	"github.com/thoohv5/template/internal/ent/user"
-	"github.com/thoohv5/template/internal/ent/useraccount"
-	"github.com/thoohv5/template/internal/ent/userextend"
-	"github.com/thoohv5/template/internal/ent/userinfo"
+	"github.com/thoohv5/template-grpc/internal/ent/miniprogramaccount"
+	"github.com/thoohv5/template-grpc/internal/ent/phoneaccount"
+	"github.com/thoohv5/template-grpc/internal/ent/user"
+	"github.com/thoohv5/template-grpc/internal/ent/useraccount"
+	"github.com/thoohv5/template-grpc/internal/ent/userextend"
+	"github.com/thoohv5/template-grpc/internal/ent/userinfo"
 
 	"github.com/facebook/ent/dialect"
 	"github.com/facebook/ent/dialect/sql"

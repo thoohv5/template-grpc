@@ -6,7 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/thoohv5/template/pkg/hpx"
+	"github.com/thoohv5/template-grpc/pkg/hpx"
 )
 
 type Response struct {

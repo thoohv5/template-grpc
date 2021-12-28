@@ -2,8 +2,8 @@ package entx
 
 import (
 	"math/rand"
-	
-	"github.com/thoohv5/template/internal/ent"
+
+	"github.com/thoohv5/template-grpc/internal/ent"
 )
 
 type Policy interface {

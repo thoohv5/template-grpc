@@ -16,6 +16,10 @@ GO_ENTC             	?= $(FIRST_GOPATH)/bin/entc
 GO_SWAG             	?= $(FIRST_GOPATH)/bin/swag
 
 
+MODULE_NAME := $(shell awk 'NR==1{print $$2}' go.mod)
+PROTODIR	:= $(shell find ./api -type d | grep -E '/proto$$')
+PBDIR		:= $(shell find ./api -type d | grep -E '/sdk$$')
+SDKDIR      := $(FIRST_GOPATH)/src
 
 pkgs := ./...
 test-pkgs = $(shell go list ./... | grep -v -E '/vendor/|/pkg/|/internal/pkg/|/internal/ent/')
@@ -66,6 +70,31 @@ $(GO_SWAG): go.sum
 	@echo "> installing swag"
 	@$(GO) install "github.com/swaggo/swag/cmd/swag@latest"
 
+# protoc
+$(PROTOC_GEN_GO): go.sum
+	@echo "> installing protoc-gen-go"
+	@$(GO) install "github.com/golang/protobuf/protoc-gen-go"
+
+$(PROTOC_GEN_GO): go.sum
+	@echo "> installing protoc-gen-go"
+	@$(GO) install "github.com/golang/protobuf/protoc-gen-go"
+
+$(PROTOC_GEN_GOVALIDATORS): go.sum
+	@echo "> installing protoc-gen-govalidators"
+	@$(GO) install "github.com/mwitkow/go-proto-validators/protoc-gen-govalidators"
+
+$(PROTOC_GEN_GRPC_GATEWAY): go.sum
+	@echo "> installing protoc-gen-grpc-gateway"
+	@$(GO) install "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway"
+
+$(PROTOC_GEN_SWAGGER): go.sum
+	@echo "> installing protoc-gen-swagger"
+	@$(GO) install "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger"
+
+$(PROTOC_GO_INJECT_TAG): go.sum
+	@echo "> installing protoc-go-inject-tag"
+	@$(GO) install "github.com/favadi/protoc-go-inject-tag"
+
 # This rule is used to forward a target like "test" to "common-test".  This
 # allows a new "build" target to be defined in a Makefile which includes this
 # one and override "common-build" without override warnings.
@@ -79,7 +108,7 @@ common-all: lint test
 common-setup:
 	@echo ">> Setup environments"
 	@$(GO) env -w GO111MODULE=on
-	@$(GO) env -w GOPRIVATE=gitee.com
+	@$(GO) env -w GOPRIVATE=github.com
 	@$(GO) env -w GOPROXY=https://goproxy.cn,direct
 
 .PHONY: common-help
@@ -153,3 +182,13 @@ common-schema: $(GOCONVERTER) $(GO_ENTC)
 common-swag: $(GO_SWAG)
 	@echo ">> swag init"
 	@$(GO_SWAG) init -d ./internal/server  -g ../../cmd/server/main.go -o ./api/docs --parseDependency
+
+.PHONY: common-gen
+common-gen: $(PROTOC_GEN_GO) $(PROTOC_GEN_GOVALIDATORS) $(PROTOC_GEN_GRPC_GATEWAY) $(PROTOC_GEN_SWAGGER) $(PROTOC_GO_INJECT_TAG)
+	@echo ">> gen code"
+	@$(foreach dir, $(shell find $(PROTODIR) -maxdepth 3 -type d), $(foreach file, $(wildcard $(dir)/*.proto), $(PROTOC) -I $(dir) -I ./third_party  --go_out=$(SDKDIR) --go-grpc_out=$(SDKDIR) --govalidators_out=$(SDKDIR) --grpc-gateway_out=logtostderr=true:$(SDKDIR) $(file);))
+
+.PHONY: common-tag
+common-tag: $(PROTOC_GO_INJECT_TAG)
+	@echo ">> gen tag"
+	@$(foreach dir, $(shell find $(PBDIR) -maxdepth 3 -type d),$(foreach file, $(wildcard $(dir)/*.pb.go), $(PROTOC_GO_INJECT_TAG) -input="$(file)" >/dev/null 2>&1;))

@@ -6,10 +6,10 @@ import (
 	ut "github.com/go-playground/universal-translator"
 	"github.com/google/wire"
 
-	"github.com/thoohv5/template/internal/pkg/app"
-	"github.com/thoohv5/template/internal/pkg/config"
-	"github.com/thoohv5/template/internal/server"
-	"github.com/thoohv5/template/pkg/hpx"
+	"github.com/thoohv5/template-grpc/internal/pkg/app"
+	"github.com/thoohv5/template-grpc/internal/pkg/config"
+	"github.com/thoohv5/template-grpc/internal/server"
+	"github.com/thoohv5/template-grpc/pkg/hpx"
 )
 
 // ProviderSet is app providers.

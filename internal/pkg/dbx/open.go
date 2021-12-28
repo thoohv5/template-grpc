@@ -12,9 +12,9 @@ import (
 	"github.com/go-sql-driver/mysql"
 	"github.com/luna-duclos/instrumentedsql"
 	"github.com/luna-duclos/instrumentedsql/opentracing"
-	
-	"github.com/thoohv5/template/internal/ent"
-	"github.com/thoohv5/template/internal/pkg/dbx/entx"
+
+	"github.com/thoohv5/template-grpc/internal/ent"
+	"github.com/thoohv5/template-grpc/internal/pkg/dbx/entx"
 )
 
 func fixMySQL(dsn string) (string, error) {

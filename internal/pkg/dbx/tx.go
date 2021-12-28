@@ -3,8 +3,8 @@ package dbx
 import (
 	"errors"
 	"fmt"
-	
-	"github.com/thoohv5/template/internal/ent"
+
+	"github.com/thoohv5/template-grpc/internal/ent"
 )
 
 func ExecTrans(tx *ent.Tx, ts ...tran) (err error) {

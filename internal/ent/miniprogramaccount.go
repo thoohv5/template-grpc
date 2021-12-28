@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/facebook/ent/dialect/sql"
-	"github.com/thoohv5/template/internal/ent/miniprogramaccount"
+	"github.com/thoohv5/template-grpc/internal/ent/miniprogramaccount"
 )
 
 // MiniProgramAccount is the model entity for the MiniProgramAccount schema.

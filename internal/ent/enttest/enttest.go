@@ -5,9 +5,9 @@ package enttest
 import (
 	"context"
 
-	"github.com/thoohv5/template/internal/ent"
+	"github.com/thoohv5/template-grpc/internal/ent"
 	// required by schema hooks.
-	_ "github.com/thoohv5/template/internal/ent/runtime"
+	_ "github.com/thoohv5/template-grpc/internal/ent/runtime"
 
 	"github.com/facebook/ent/dialect/sql/schema"
 )

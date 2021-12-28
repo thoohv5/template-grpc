@@ -9,8 +9,8 @@ import (
 	"github.com/facebook/ent/dialect/sql"
 	"github.com/facebook/ent/dialect/sql/sqlgraph"
 	"github.com/facebook/ent/schema/field"
-	"github.com/thoohv5/template/internal/ent/predicate"
-	"github.com/thoohv5/template/internal/ent/user"
+	"github.com/thoohv5/template-grpc/internal/ent/predicate"
+	"github.com/thoohv5/template-grpc/internal/ent/user"
 )
 
 // UserDelete is the builder for deleting a User entity.

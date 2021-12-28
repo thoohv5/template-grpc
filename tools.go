@@ -16,9 +16,12 @@ import (
 
 	_ "github.com/facebook/ent/entc/gen@v0.4.3"
 	_ "github.com/google/wire/cmd/wire"
+	_ "github.com/ssoor/implgen"
 	_ "github.com/thoohv5/converter/cmd/converter"
-	
-	_ "github.com/swaggo/swag/cmd/swag@latest"
-	_ "github.com/swaggo/gin-swagger"
+
 	_ "github.com/swaggo/files"
+	_ "github.com/swaggo/gin-swagger"
+	_ "github.com/swaggo/swag/cmd/swag@latest"
+
+	_ "google.golang.org/protobuf/cmd/protoc-gen-go"
 )

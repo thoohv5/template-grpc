@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/facebook/ent/dialect/sql"
-	"github.com/thoohv5/template/internal/ent/user"
+	"github.com/thoohv5/template-grpc/internal/ent/user"
 )
 
 // User is the model entity for the User schema.
